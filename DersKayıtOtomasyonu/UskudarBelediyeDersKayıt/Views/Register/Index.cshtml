@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Kayıt Ol</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body modal-bg">
+                    <form action="#" method="post" class="p-sm-3">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">İsminiz</label>
+                            <input type="text" class="form-control" placeholder="" name="StudentName" id="recipient-rname"
+                                required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Soyisminiz:</label>
+                            <input type="text" class="form-control" placeholder="" name="StudentLastName" id="recipient-rname"
+                                required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-email" class="col-form-label">Mail</label>
+                            <input type="email" class="form-control" placeholder="" name="StudentMail" id="recipient-email"
+                                required="">
+                        </div>
+
+                         <<div class="form-group">
+    <label for="StudentPeriod" class="col-form-label">Sınıfınız</label>
+    <select class="form-control" name="StudentPeriod" id="StudentPeriod" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">Üniversite 1</option>
+        <option value="14">Üniversite 2</option>
+        <option value="15">Üniversite 3</option>
+        <option value="16">Üniversite 4</option>
+    </select>
+</div>
+
+                         <div class="form-group">
+                            <label for="password1" class="col-form-label">Telefon Numaranız</label>
+                            <input type="text" class="form-control" placeholder="" name="StudentTel" id="recipient-tel"
+                               required="" onkeypress="return isNumberKey(event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="password1" class="col-form-label">Şifre</label>
+                            <input type="password" class="form-control" placeholder="" name="StudentPassword" id="password1"
+                                required="">
+                        </div>
+
+
+
+                        <div class="sub-w3l">
+                            <div class="sub-w3_pvt">
+                                <input type="checkbox" id="brand2" value="">
+                                <label for="brand2" class="mb-3 text-dark">
+                                    <span></span>Şartları Okudum & Kabul Ediyorum</label>
+                            </div>
+                        </div>
+                        <div class="right-w3l">
+                            <input type="submit"  class="form-control bg-theme1" value="Kayıt Ol">
+                        </div>
+                    </form>
+                     <input type="hidden" id="StudentStatus" name="StudentStatus" value="0">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>

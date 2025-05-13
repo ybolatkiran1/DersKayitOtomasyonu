@@ -1,0 +1,105 @@
+﻿@model IEnumerable<EntityLayer.Concrete.STUDENT>
+
+<style>
+
+    .table {
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        .table tr,
+        .table td,
+        .table th {
+            border: 1px solid #bbb;
+            padding: 5px 10px;
+        }
+
+        .table th {
+            background-color: #d1084b;
+            color: #fff;
+            font-weight: 600;
+        }
+
+    .button {
+        background-color: #04AA6D; 
+        border: none;
+        color: white;
+        padding: 5px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    
+
+    .button3 {
+        background-color: white;
+        color: black;
+        border: 2px solid #DC143C;
+        border-radius: 12px;
+    }
+
+        .button3:hover {
+            background-color: #DC143C;
+            color: white;
+        }
+
+   
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Öğrenci Adı</th>
+            <th>Öğrenci Soyadı</th>
+            <th>Öğrenci Maili</th>
+            <th>Öğrenci Öğrenim Durumu</th>
+            <th>Öğrenci Telefonu</th>
+            <th>Öğrenci Durumu</th>
+            <th>Öğrenci Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentName</td>
+                <td>@student.StudentLastName</td>
+                <td>@student.StudentMail</td>
+                <td>
+                    @{
+                        if (student.StudentPeriod >= 1 && student.StudentPeriod <= 12)
+                        {
+                            @($"{student.StudentPeriod}. sınıf")
+                        }
+                        else
+                        {
+                            string periodText = student.StudentPeriod switch
+                            {
+                                13 => "Üniversite 1",
+                                14 => "Üniversite 2",
+                                15 => "Üniversite 3",
+                                16 => "Üniversite 4",
+                                _ => "Bilinmeyen Dönem"
+                            };
+                            @periodText
+                        }
+                    }
+                </td>
+                <td>@student.StudentTel</td>
+                <td>@(student.StudentStatus ? "Eğitime Kayıtlı" : "Eğitime Kayıtlı Değil")</td>
+                <td>
+                    <form action="/Student/Delete" method="post" onsubmit="return confirm('Bu öğrenciyi silmek istediğinize emin misiniz?');">
+                        <input type="hidden" name="id" value="@student.StudentID" />
+                        <button type="submit" class="button button3">Sil</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>

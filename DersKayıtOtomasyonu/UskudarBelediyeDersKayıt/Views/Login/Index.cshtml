@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+
+<form id="loginForm">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content modal-bgW">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Giriş Yap</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form  method="post" class="p-sm-3">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Mail</label>
+                            <input type="text" class="form-control" placeholder="" name="StudentMail" id="recipient-name"
+                                required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-form-label">Şifre</label>
+                            <input type="password" class="form-control" placeholder="" name="StudentPassword" id="password"
+                                required="">
+                        </div>
+                        <div class="right-w3l">
+                            <input type="submit" class="form-control bg-theme1" value="Giriş Yap">
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#loginForm").on("submit", function (e) {
+            e.preventDefault(); // Formun normal gönderilmesini engelle
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Index", "Login")",
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.success) {
+                        swal("Giriş Başarılı", "Sayfaya Yönlendiriliyorsunuz!", "success")
+                            .then(() => {
+                                window.location.href = '@Url.Action("Index", "Student")';
+                            });
+                    } else {
+                        swal("Giriş Başarısız", "Lütfen bilgilerinizi kontrol edin.", "error");
+                    }
+                },
+                
+            });
+        });
+    });
+</script>
+
+    
+    
+</form>

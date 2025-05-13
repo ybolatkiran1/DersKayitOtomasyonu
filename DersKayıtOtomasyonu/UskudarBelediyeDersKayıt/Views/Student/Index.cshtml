@@ -1,0 +1,302 @@
+﻿@using EntityLayer.Concrete
+@model List<STUDENT>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Üsküdar Belediyesi Bilim Merkezi Öğrenci Kayıt Sistemi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Alphabet Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Custom Theme files -->
+    <link href="~/BelediyeDersKayıt/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <!-- portfolio -->
+    <link href="~/BelediyeDersKayıt/css/gallery.css" type="text/css" rel="stylesheet" media="all">
+    <!-- testimonials -->
+    <link href="~/BelediyeDersKayıt/css/testimonials.css" type="text/css" rel="stylesheet" media="all">
+    <link href="~/BelediyeDersKayıt/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="~/BelediyeDersKayıt/css/font-awesome.min.css" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <!-- //online-fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/BelediyeDersKayıt/js/bootstrap.js"></script>
+    
+    
+</head>
+  <!-- banner -->
+    <div id="home" class="position-relative">
+        <div class="header-main">
+            <div class="d-sm-flex justify-content-between">
+                <h1>
+                    <a class="navbar-brand" href="Index">
+                    <span style="color:#8BC34A">Ü</span><span style="color:#FFA500">S</span><span style="color:#00BFFF">K</span>
+                    <span style="color:#FFA500">Ü</span><span style="color:#00BFFF">D</span><span style="color:#FFA500">A</span>
+                    <span style="color:#00BFFF">R</span>
+                    <span style="color:#FFA500">F</span><span style="color:#00BFFF">A</span><span style="color:#FFA500">B</span>
+                    <span style="color:#00BFFF">L</span><span style="color:#FFA500">A</span><span style="color:#00BFFF">B</span>
+                    <br />
+                  <span style="color:#8BC34A ; font-family: inherit; font-size: inherit;">Hoşgeldin, @ViewBag.StudentName!</span> 
+                  
+
+                  
+</a>
+                   
+                </h1> 
+
+
+            </div>
+        </div>
+    </div>
+
+
+   
+
+
+@if (ViewBag.StudentStatus == false)
+{
+    <div class="callbacks_container">
+        <ul class="rslides" id="slider3">
+            <li class="slider-img">
+                <div class="container-fluid px-0">
+                    <div class="row">
+                        <div class="col-3 col-sm-6 px-0 bg-theme1 banner-left-grid">
+                            <div class="banner-text h-100">
+                            </div>
+                        </div>
+                        <div class="col-9 col-sm-6 banner banner1 banner-text">
+                        </div>
+                        <div class="slider-info">
+                            <span class="line">Hoşgeldin, @ViewBag.StudentName!</span>
+                            <h3>Sende <span>Bize</span> Katıl</h3>
+
+                            <a class="btn bg-theme mt-4 w3_pvt-link-bnr scroll" href="#about" role="button">Eğitime Katıl</a>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+    </div>
+    
+
+
+    @if (ViewBag.StudentPeriod >= 1 && ViewBag.StudentPeriod <= 4)
+    {
+        <div class="col-lg-4 my-lg-0 my-4 pl-lg-0">
+            <div class="w3ls-servgrid card">
+                <div class="card-header">
+                    <span class="sub-line">01</span>
+                    <h4 class="serv-title">
+                        Lise
+                    </h4>
+                </div>
+                <div id="about" class="card-block">
+                    <p class="card-title servgrid-title">
+                        İlkokul düzeyindeki derslerimiz astronomi,sergiler,matematik,fen dersleri ve daha fazla
+                        yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                    </p>
+                    <a href="@Url.Action("UpdateStatus", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll"
+                    onclick="alert('Başarıyla Eğitime Kaydoldunuz.');">Eğitime Katıl!</a>
+                </div>
+            </div>
+        </div>
+    }
+    else if (ViewBag.StudentPeriod >= 5 && ViewBag.StudentPeriod <= 8)
+    {
+        <div class="col-lg-4">
+            <div class="w3ls-servgrid card">
+                <div class="card-header">
+                    <span class="sub-line">02</span>
+                    <h4 class="serv-title">
+                        Ortaokul
+                    </h4>
+                </div>
+                <div id="about" class="card-block">
+                    <p class="card-title servgrid-title">
+                        Ortaokul düzeyindeki derslerimiz astronomi, sergiler, matematik, fen dersleri ve daha fazla
+                        yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                    </p>
+                    <a href="@Url.Action("UpdateStatus", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll" onclick="alert('Başarıyla Eğitime Kaydoldunuz.');">Eğitime Katıl!</a>
+
+
+                </div>
+            </div>
+        </div>
+    }
+    else if (ViewBag.StudentPeriod >= 9 && ViewBag.StudentPeriod <= 12)
+    {
+        <div class="col-lg-4 my-lg-0 my-4 pl-lg-0">
+            <div class="w3ls-servgrid card">
+                <div class="card-header">
+                    <span class="sub-line">03</span>
+                    <h4 class="serv-title">
+                        Lise
+                    </h4>
+                </div>
+                <div id="about" class="card-block">
+                    <p class="card-title servgrid-title">
+                        Lise düzeyindeki derslerimiz astronomi,sergiler,matematik,fen dersleri ve daha fazla
+                        yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                    </p>
+                    <a href="@Url.Action("UpdateStatus", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll" onclick="alert('Başarıyla Eğitime Kaydoldunuz.');">Eğitime Katıl!</a>
+                </div>
+            </div>
+        </div>
+    }
+    else if (ViewBag.StudentPeriod >= 13 && ViewBag.StudentPeriod <= 17)
+    {
+        <div class="col-lg-4 my-lg-0 my-4 pl-lg-0">
+            <div class="w3ls-servgrid card">
+                <div class="card-header">
+                    <span class="sub-line">03</span>
+                    <h4 class="serv-title">
+                        Üniversite
+                    </h4>
+                </div>
+                <div id="about" class="card-block">
+                    <p class="card-title servgrid-title">
+                        Üniversite düzeyindeki derslerimiz astronomi,sergiler,matematik,fen dersleri ve daha fazla
+                        yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                    </p>
+                    <a href="@Url.Action("UpdateStatus", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll" onclick="alert('Başarıyla Eğitime Kaydoldunuz.');">Eğitime Katıl!</a>
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <!-- //banner -->
+}
+else if (ViewBag.StudentStatus == true)
+{
+          <div class="callbacks_container">
+            <ul class="rslides" id="slider3">
+                <li class="slider-img">
+                    <div class="container-fluid px-0">
+                        <div class="row">
+                            <div class="col-3 col-sm-6 px-0 bg-theme1 banner-left-grid">
+                                <div class="banner-text h-100">
+                                </div>
+                            </div>
+                            <div class="col-9 col-sm-6 banner banner1 banner-text">
+                            </div>
+                            <div class="slider-info">
+                            <span class="line">Hoşgeldiniz</span>
+                            <h3>Seninle<span>Daha</span> İleriye!</h3>
+
+                                <a class="btn bg-theme mt-4 w3_pvt-link-bnr scroll" href="#about" role="button">Eğitimimi Göster</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+        </div>
+        
+
+    @if (ViewBag.StudentPeriod >= 1 && ViewBag.StudentPeriod <= 4)
+    {
+                <div id="about" class="card-block">
+                    <p class="card-title servgrid-title">
+                        İlkokul düzeyindeki derslerimiz astronomi, sergiler, matematik, fen dersleri ve daha fazla
+                        yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                    </p>
+            <a href="@Url.Action("LeaveTraining", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll"
+                         onclick="return confirmLeaveTraining();">Eğitimden Ayrıl!</a>
+
+                </div>
+    }
+    else if (ViewBag.StudentPeriod >= 5 && ViewBag.StudentPeriod <= 8)
+    {
+                <div class="col-lg-4">
+                    <div class="w3ls-servgrid card">
+                        <div class="card-header">
+                            <span class="sub-line">02</span>
+                            <h4 class="serv-title">
+                                Ortaokul
+                            </h4>
+                        </div>
+                        <div id="about" class="card-block">
+                            <p class="card-title servgrid-title">
+                                Ortaokul düzeyindeki derslerimiz astronomi, sergiler, matematik, fen dersleri ve daha fazla
+                                yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                            </p>
+                    <a href="@Url.Action("LeaveTraining", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll" onclick="return confirmLeaveTraining();">Eğitimden Ayrıl!</a>
+
+
+
+                        </div>
+                    </div>
+                </div>
+    }
+    else if (ViewBag.StudentPeriod >= 9 && ViewBag.StudentPeriod <= 12)
+    {
+                <div class="col-lg-4 my-lg-0 my-4 pl-lg-0">
+                    <div class="w3ls-servgrid card">
+                        <div class="card-header">
+                            <span class="sub-line">03</span>
+                            <h4 class="serv-title">
+                                Lise
+                            </h4>
+                        </div>
+                        <div id="about" class="card-block">
+                            <p class="card-title servgrid-title">
+                                Lise düzeyindeki derslerimiz astronomi,sergiler,matematik,fen dersleri ve daha fazla
+                                yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                            </p>
+                    <a href="@Url.Action("LeaveTraining", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll" onclick="return confirmLeaveTraining();">Eğitimden Ayrıl!</a>
+
+                        </div>
+                    </div>
+                </div>
+    }
+    else if (ViewBag.StudentPeriod >= 13 && ViewBag.StudentPeriod <= 17)
+    {
+                <div class="col-lg-4 my-lg-0 my-4 pl-lg-0">
+                    <div class="w3ls-servgrid card">
+                        <div class="card-header">
+                            <span class="sub-line">03</span>
+                            <h4 class="serv-title">
+                                Üniversite
+                            </h4>
+                        </div>
+                        <div id="about" class="card-block">
+                            <p class="card-title servgrid-title">
+                                Üniversite düzeyindeki derslerimiz astronomi,sergiler,matematik,fen dersleri ve daha fazla
+                                yaşayarak öğrenim felsefemize uygun olarak derslerimizden oluşur.
+                            </p>
+                    <a href="@Url.Action("LeaveTraining", "Student", new { studentId = ViewBag.StudentId })" class="text-capitalize servgrid_link btn scroll" onclick="return confirmLeaveTraining();">Eğitimden Ayrıl!</a>
+
+                        </div>
+                    </div>
+                </div>
+    }
+    <script>
+        function confirmLeaveTraining() {
+            var confirmed = confirm("Eğitimden ayrılmak istediğinize emin misiniz?\n İşlem sonunda anasayfaya yönlendirilip tekrardan giriş yapmanız gerekir!");
+            if (confirmed) {
+                window.location.href = '@Url.Action("LeaveTraining", "Student", new { studentId = ViewBag.StudentId })';
+                return true;
+            }
+            return false;
+        }
+    </script>
+
+}
